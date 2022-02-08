@@ -4,8 +4,10 @@ const TableHeader = (props) => {
   return (
     <thead>
       <tr>
-        {props.headers.map((header) => (
-          <td>{header}</td>
+        {props.headers.map((header, index) => (
+          <td key={index} scope="col">
+            {header}
+          </td>
         ))}
       </tr>
     </thead>

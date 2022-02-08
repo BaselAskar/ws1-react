@@ -26,6 +26,11 @@ const studentsData = [
 const DataTable = () => {
   const [studentsList, setStudentsList] = useState([]);
 
+  const getStudentHandler = (studentId) => {
+    const student = studentsList.filter((s) => s.id === studentId);
+    return student[0];
+  };
+
   useEffect(() => {
     setStudentsList(studentsData);
   }, []);
@@ -35,7 +40,7 @@ const DataTable = () => {
       <TableHeader
         headers={["Id", "First Name", "Last Name", "Age", "Action"]}
       />
-      <TableRow students={studentsList} />
+      <TableRow students={studentsData} onGetStudent={getStudentHandler} />
     </table>
   );
 };
